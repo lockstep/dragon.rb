@@ -1,0 +1,4 @@
+db/database.yml
+db/test.sqlite-*
+notes.txt
+*.commandstext
