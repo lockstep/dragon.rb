@@ -11,6 +11,10 @@ describe Command do
     @command = Command.new
     expect(@command.attributes).to eq COMMAND_INIT_VALUES
   end
+  it 'has a Z_PK id' do
+    @command = Command.create
+    expect(@command.Z_PK).to be_a Integer
+  end
 
   COMMAND_INIT_VALUES = {
     "Z_PK"=>nil,

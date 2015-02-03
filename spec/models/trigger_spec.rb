@@ -7,6 +7,14 @@ describe Trigger do
     @trigger = Trigger.new
     expect(@trigger.attributes).to eq TRIGGER_INIT_VALUES
   end
+  it 'valiates presence of current_command' do
+    @trigger = Trigger.new
+    expect(@trigger).not_to be_valid
+  end
+  it 'has a Z_PK id' do
+    @trigger = Action.create(ZCOMMAND: 0)
+    expect(@trigger.Z_PK).to be_a Integer
+  end
 
   TRIGGER_INIT_VALUES = {
     "Z_PK"=>nil,

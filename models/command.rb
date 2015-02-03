@@ -5,13 +5,10 @@ class Command < ActiveRecord::Base
   after_initialize :init
 
   def init
-    # self.Z_PK ||= nil
     # self.Z_OPT ||= nil
     # self.ZAPPVERSION ||= nil
     # self.ZCOMMANDID ||= nil
     # self.ZVERSION ||= nil
-    # self.ZCURRENTACTION ||= nil
-    # self.ZCURRENTTRIGGER ||= nil
     # self.ZLOCATION ||= nil
     # self.ZAPPBUNDLE ||= nil
     # self.ZTYPE ||= nil

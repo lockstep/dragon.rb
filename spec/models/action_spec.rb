@@ -7,6 +7,14 @@ describe Action do
     @action = Action.new
     expect(@action.attributes).to eq ACTION_INIT_VALUES
   end
+  it 'valiates presence of current_command' do
+    @action = Action.new
+    expect(@action).not_to be_valid
+  end
+  it 'has a Z_PK id' do
+    @action = Action.create(ZCOMMAND: 0)
+    expect(@action.Z_PK).to be_a Integer
+  end
 
   ACTION_INIT_VALUES = {
     "Z_PK"=>nil,
