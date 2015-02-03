@@ -9,10 +9,9 @@ class Command < ActiveRecord::Base
     # self.ZAPPVERSION ||= nil
     # self.ZCOMMANDID ||= nil
     # self.ZVERSION ||= nil
-    # self.ZLOCATION ||= nil
     # self.ZAPPBUNDLE ||= nil
     # self.ZTYPE ||= nil
-    # self.ZVENDOR ||= nil
+    self.ZVENDOR ||= 'Dragon.rb'
     self.Z_ENT ||= 2
     self.ZACTIVE ||= 1
     self.ZDISPLAY ||= 1
@@ -22,6 +21,7 @@ class Command < ActiveRecord::Base
     self.ZISDICTATION ||= 0
     self.ZISSLEEP ||= 0
     self.ZISSPELLING ||= 0
+    self.ZLOCATION ||= nil
     self.ZOSLANGUAGE ||= 'en_GB'
     self.ZSPOKENLANGUAGE ||= 'en_US'
   end

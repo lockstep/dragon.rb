@@ -38,6 +38,6 @@ describe Command do
     "ZOSLANGUAGE"=> 'en_GB',
     "ZSPOKENLANGUAGE"=> 'en_US',
     "ZTYPE"=>nil,
-    "ZVENDOR"=>nil
+    "ZVENDOR"=> 'Dragon.rb'
   }
 end
