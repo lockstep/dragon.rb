@@ -12,7 +12,7 @@ class Action < ActiveRecord::Base
   def init
     # self.Z_OPT ||= nil
     # self.ZTEXT ||= nil
-    # self.ZDATA ||= nil
+    self.ZDATA ||= nil
     self.Z_ENT ||= 1
     self.ZISUSER ||= 1
     self.ZOSLANGUAGE ||= 'en_US'
