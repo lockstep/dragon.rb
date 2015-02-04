@@ -15,7 +15,7 @@ describe Action do
     @action = Action.create(ZCOMMAND: 0)
     expect(@action.Z_PK).to be_a Integer
   end
-  it 'does not overrite current command on find' do
+  it 'does not overwrite current command on find' do
     @action = Action.first
     original_current_command = @action.ZCURRENTCOMMAND
     @action.update(ZCOMMAND: 0)

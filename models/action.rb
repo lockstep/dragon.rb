@@ -21,6 +21,6 @@ class Action < ActiveRecord::Base
     self.ZOSLANGUAGE ||= 'en_US'
 
     # Mysterious Attributes
-    self.Z_OPT ||= 30 # This is completely arbitrary, not sure of purpose
+    self.Z_OPT ||= 30 # This is completely arbitrary, unsure of purpose
   end
 end
