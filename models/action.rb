@@ -9,11 +9,18 @@ class Action < ActiveRecord::Base
   end
 
   def init
-    # self.Z_OPT ||= nil
+    # Template-driven Attributes
+    # This is the action to run (the keystrokes in a macro, the uncompiled
+    # AppleScript, etc)
     # self.ZTEXT ||= nil
+
+    # Defaults
     self.ZDATA ||= nil
     self.Z_ENT ||= 1
     self.ZISUSER ||= 1
     self.ZOSLANGUAGE ||= 'en_US'
+
+    # Mysterious Attributes
+    self.Z_OPT ||= 30 # This is completely arbitrary, not sure of purpose
   end
 end

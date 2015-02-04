@@ -26,7 +26,7 @@ describe Action do
   ACTION_INIT_VALUES = {
     "Z_PK"=>nil,
     "Z_ENT"=> 1,
-    "Z_OPT"=>nil,
+    "Z_OPT"=>30,
     "ZISUSER"=> 1,
     "ZCOMMAND"=>nil,
     "ZCURRENTCOMMAND"=>nil,
