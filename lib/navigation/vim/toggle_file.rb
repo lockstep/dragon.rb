@@ -3,8 +3,8 @@ module Navigation
     class ToggleFile
       attr_accessor :command_type, :action
       def initialize
-        @command_type = 'Keystroke'
-        @action = 'asdf'
+        @command_type = 'Text'
+        @action = '  \n'
       end
     end
   end

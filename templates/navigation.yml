@@ -1,4 +1,4 @@
-Back and Forth:
-  description: A test command
+Toggle:
+  description: Toggle to and from the most recent file
   applications: [[org.vim.MacVim, 7]]
   builder: 'Navigation::Vim::ToggleFile'
