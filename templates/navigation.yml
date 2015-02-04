@@ -1,0 +1,4 @@
+Back and Forth:
+  description: A test command
+  applications: [[org.vim.MacVim, 7]]
+  builder: 'Navigation::Vim::ToggleFile'

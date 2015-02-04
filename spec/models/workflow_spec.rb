@@ -40,5 +40,21 @@ describe Workflow do
       @command = Command.last
       expect(@command.ZCOMMANDID).to eq(Command::COMMANDID_START + @command.id)
     end
+    it 'saves the template-based values correctly' do
+      Workflow.create!({
+        application: 'com.Mac', application_version: 7,
+        description: 'my desc', verbal_command: 'test com',
+        command_type: 'key', action: 'asdf'
+      })
+      @command = Command.last
+      @action = @command.action
+      @trigger = @command.trigger
+      expect(@command.ZAPPBUNDLE).to eq 'com.Mac'
+      expect(@command.ZAPPVERSION).to eq 7
+      expect(@command.ZTYPE).to eq 'key'
+      expect(@action.ZTEXT).to eq 'asdf'
+      expect(@trigger.ZDESC).to eq 'my desc'
+      expect(@trigger.ZSTRING).to eq 'test com'
+    end
   end
 end
