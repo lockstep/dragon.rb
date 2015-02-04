@@ -2,7 +2,8 @@ require 'active_record'
 require 'yaml'
 
 dbconfig = YAML::load(File.open('db/database.yml'))
-ActiveRecord::Base.establish_connection(dbconfig['test'])
+which_config = ENV['DRAGON_ENV'] || 'test'
+ActiveRecord::Base.establish_connection(dbconfig[which_config])
 
 Dir[File.join(File.dirname(__FILE__), '..', 'models', '*.rb')].each do |file|
   require file
