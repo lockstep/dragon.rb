@@ -1,12 +1,11 @@
 class Action < ActiveRecord::Base
   self.table_name = "ZACTION"
   belongs_to :command, foreign_key: 'ZCOMMAND'
-  after_initialize :init
-  before_validation :set_current_command
+  after_initialize :init, :set_current_command
   validates_presence_of :ZCURRENTCOMMAND
 
   def set_current_command
-    self.ZCURRENTCOMMAND = self.ZCOMMAND
+    self.ZCURRENTCOMMAND ||= self.ZCOMMAND
   end
 
   def init

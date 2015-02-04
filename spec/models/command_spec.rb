@@ -30,7 +30,7 @@ describe Command do
     "ZISDICTATION"=> 0,
     "ZISSLEEP"=> 0,
     "ZISSPELLING"=> 0,
-    "ZVERSION"=>nil,
+    "ZVERSION"=>1,
     "ZCURRENTACTION"=>nil,
     "ZCURRENTTRIGGER"=>nil,
     "ZLOCATION"=>nil,

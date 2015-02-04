@@ -15,6 +15,13 @@ describe Trigger do
     @trigger = Action.create(ZCOMMAND: 0)
     expect(@trigger.Z_PK).to be_a Integer
   end
+  it 'does not overrite current command on find' do
+    @trigger = Trigger.first
+    original_current_command = @trigger.ZCURRENTCOMMAND
+    @trigger.update(ZCOMMAND: 0)
+    @trigger = Trigger.find(@trigger.id)
+    expect(@trigger.ZCURRENTCOMMAND).to eq original_current_command
+  end
 
   TRIGGER_INIT_VALUES = {
     "Z_PK"=>nil,

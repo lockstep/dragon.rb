@@ -1,4 +1,7 @@
 db/database.yml
 db/test.sqlite-*
+db/production_copy.sqlite
+db/production_copy.sqlite-*
 notes.txt
 *.commandstext
+/bin
