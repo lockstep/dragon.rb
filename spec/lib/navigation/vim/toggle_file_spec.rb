@@ -1,5 +1,5 @@
 describe Navigation::Vim::ToggleFile do
-  it 'is a text macro' do
+  it 'is a kay macro' do
     @builder = Navigation::Vim::ToggleFile.new
     expect(@builder.command_type).to eq 'Text'
   end
