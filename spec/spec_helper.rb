@@ -1,4 +1,7 @@
 require File.expand_path("../../config/environment", __FILE__)
+Dir[File.join(File.dirname(__FILE__), '..','spec/support/**/*.rb')].each do |file|
+  require file
+end
 require 'database_cleaner'
 
 RSpec.configure do |config|

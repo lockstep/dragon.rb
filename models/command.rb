@@ -1,7 +1,7 @@
 class Command < ActiveRecord::Base
   self.table_name = "ZCOMMAND"
-  has_one :action, foreign_key: 'ZCOMMAND'
-  has_one :trigger, foreign_key: 'ZCOMMAND'
+  has_one :action, foreign_key: 'ZCOMMAND', dependent: :destroy
+  has_one :trigger, foreign_key: 'ZCOMMAND', dependent: :destroy
   after_initialize :init
   before_create :set_zopt
   COMMANDID_START = -777000000
