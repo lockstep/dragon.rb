@@ -35,5 +35,10 @@ describe Workflow do
       @command = Command.last
       expect(@command.Z_OPT).to eq 219
     end
+    it 'sets the ZCOMMANDID to a strongly negative, likely unique value' do
+      @workflow = Workflow.create!
+      @command = Command.last
+      expect(@command.ZCOMMANDID).to eq(Command::COMMANDID_START + @command.id)
+    end
   end
 end
