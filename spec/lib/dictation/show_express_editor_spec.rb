@@ -5,7 +5,9 @@ describe Dictation::ShowExpressEditor do
   end
   it 'compiles' do
     @builder = Dictation::ShowExpressEditor.new
-    File.open("a.txt", 'w+') {|f| f.write(@builder.action) }
+    File.open("a.txt", 'w+') do |f|
+      f.write(@builder.action.nuance_applescript_removed)
+    end
     system("osacompile a.txt")
     expect($?.exitstatus).to eq 0
   end

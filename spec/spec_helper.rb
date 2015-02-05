@@ -33,7 +33,7 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
   config.after :suite do
-    File.delete('a.txt')
-    File.delete('a.scpt')
+    File.delete('a.txt') if File.exist? 'a.txt'
+    File.delete('a.scpt') if File.exist? 'a.scpt'
   end
 end

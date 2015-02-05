@@ -10,4 +10,13 @@ class String
     string.gsub! /^#{' ' * indentation_level}/, '' if indentation_level > 0
     string
   end
+
+  def nuance_applescript_removed
+    string = dup
+    # These lines will not compile when run outside of Dictate, so we won't test
+    # them in the compiler spec. All other lines should compile independently.
+    nuance_scripts = ['show express editor']
+    lines = string.split(/\r\n|\r|\n/)
+    lines.reject { |l| nuance_scripts.include? l.strip }.join("\n")
+  end
 end
