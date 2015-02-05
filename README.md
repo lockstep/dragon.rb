@@ -6,7 +6,7 @@ Clone the repo and run `bundle`. Copy the example database config:
 
     cp db/database.example.yml db/database.yml
 
-and configure based on this example:
+and configure as needed:
 
 ```yml
 # db/database.yml
