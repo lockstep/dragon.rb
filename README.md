@@ -1,5 +1,5 @@
 # Dragon.rb
-A ruby DSL for customizing Dragon Dictate for OSX
+A ruby DSL for customizing Dragon Dictate on OSX
 
 ## Setup
 Clone the repo, run `bundle` and test with `rspec spec`.
