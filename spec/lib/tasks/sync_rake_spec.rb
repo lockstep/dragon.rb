@@ -28,7 +28,7 @@ describe 'sync:create' do
     expect(Workflow).to have_received(:create!).with({
       application: 'org.vim.MacVim', application_version: 7,
       command_type: 'Text', description: 'A test command',
-      verbal_command: 'Back and Forth', action: '  \n'
+      verbal_command: 'Back and Forth', action: '  '
     })
   end
 end

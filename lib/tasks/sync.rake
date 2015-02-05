@@ -1,11 +1,11 @@
 namespace :sync do
   desc "Clear all existing Dragon.rb commands"
-  task clear: :environment do
+  task :clear do
     Command.where(ZVENDOR: 'Dragon.rb').destroy_all
   end
 
-  desc "Generate the workflows in the template"
-  task create: :environment do
+  desc "Generate the workflows defined in templates"
+  task :create do
     templates = YAML::load(File.open('templates/navigation.yml'))
     templates.each do |template|
       workflow_params = template[1]

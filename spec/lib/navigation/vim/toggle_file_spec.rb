@@ -5,6 +5,6 @@ describe Navigation::Vim::ToggleFile do
   end
   it 'is two spaces followed by a return' do
     @builder = Navigation::Vim::ToggleFile.new
-    expect(@builder.action).to eq '  \n'
+    expect(@builder.action).to eq '  '
   end
 end

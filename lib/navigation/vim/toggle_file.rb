@@ -4,7 +4,7 @@ module Navigation
       attr_accessor :command_type, :action
       def initialize
         @command_type = 'Text'
-        @action = '  \n'
+        @action = '  '
       end
     end
   end
