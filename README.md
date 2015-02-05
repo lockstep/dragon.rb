@@ -23,6 +23,6 @@ Run tests with `rspec spec`. Sync to Dragon with `rake`.
 
 ## WARNING
 This is currently an experimental project under active development.
-Collaborators are welcome, but please do not consider the library ready for use.
-If used incorrectly, this has the potential to permanently corrupt your Dragon
-Dictate command library (and any related data).
+Collaborators are welcome, but please do not consider the library ready for
+carefree use.  If used incorrectly, this has the potential to permanently
+corrupt your Dragon Dictate command library (and any related data).
