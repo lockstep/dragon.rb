@@ -2,8 +2,11 @@
 A ruby DSL for customizing Dragon Dictate on OSX
 
 ## Setup
-Clone the repo and run `bundle`. Copy the example database config
-`cp db/database.example.yml db/database.yml` and configure:
+Clone the repo and run `bundle`. Copy the example database config:
+
+    cp db/database.example.yml db/database.yml
+
+and configure based on this example:
 
 ```yml
 # db/database.yml
