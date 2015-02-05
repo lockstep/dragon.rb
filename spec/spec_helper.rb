@@ -32,4 +32,8 @@ RSpec.configure do |config|
   config.after do
     DatabaseCleaner.clean
   end
+  config.after :suite do
+    File.delete('a.txt')
+    File.delete('a.scpt')
+  end
 end
