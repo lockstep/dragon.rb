@@ -16,7 +16,7 @@ describe Dictation::ShowExpressEditor do
     expect(@builder.action.align_left).to eq <<-APPLESCRIPT.align_left
       set _dictateApp to (name of current application)
       tell application _dictateApp
-      -- show express editor
+        show express editor
       end tell
     APPLESCRIPT
   end
