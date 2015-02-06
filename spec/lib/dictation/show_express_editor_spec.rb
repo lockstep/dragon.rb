@@ -18,6 +18,9 @@ describe Dictation::ShowExpressEditor do
       tell application _dictateApp
         show express editor
       end tell
+      tell application _dictateApp
+        set microphone to dictation
+      end tell
     APPLESCRIPT
   end
 end

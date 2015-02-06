@@ -6,7 +6,10 @@ namespace :sync do
 
   desc "Generate the workflows defined in templates"
   task :create do
-    templates = YAML::load(File.open('templates/navigation.yml'))
+    templates = {}
+    Dir.glob('templates/*.yml') do |file|
+      templates.merge! YAML::load(File.open(file))
+    end
     templates.each do |template|
       workflow_params = template[1]
       workflow_params['applications'].each do |application|

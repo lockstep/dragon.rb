@@ -1,0 +1,3 @@
+Express:
+  description: Open the Express editor and switch to dicate mode
+  builders: [[Global, 0, 'Dictation::ShowExpressEditor']]

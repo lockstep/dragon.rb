@@ -1,4 +1,3 @@
 Toggle:
   description: Toggle to and from the most recent file
-  applications: [[org.vim.MacVim, 7]]
-  builder: 'Navigation::Vim::ToggleFile'
+  builders: [[org.vim.MacVim, 7, 'Navigation::Vim::ToggleFile']]

@@ -19,8 +19,7 @@ describe 'sync:create' do
     allow(YAML).to receive(:load).and_return([[
       "Back and Forth", {
         "description"=>"A test command",
-        "applications"=>[["org.vim.MacVim", 7]],
-        "builder"=>"Navigation::Vim::ToggleFile"
+        "builders"=>[["org.vim.MacVim", 7, "Navigation::Vim::ToggleFile"]]
       }
     ]])
     allow(Workflow).to receive(:create!)
