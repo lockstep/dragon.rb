@@ -12,10 +12,11 @@ namespace :sync do
     end
     templates.each do |template|
       workflow_params = template[1]
-      workflow_params['applications'].each do |application|
-        @builder = workflow_params['builder'].constantize.new
+      workflow_params['builds'].each do |build|
+        application, version, builder_class = build[0], build[1], build[2]
+        @builder = builder_class.constantize.new
         Workflow.create!({
-          application: application[0], application_version: application[1],
+          application: application, application_version: version,
           description: workflow_params['description'],
           verbal_command: template[0], command_type: @builder.command_type,
           action: @builder.action

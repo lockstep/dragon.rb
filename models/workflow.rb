@@ -1,7 +1,8 @@
 class Workflow
   def self.create!(params={})
     ActiveRecord::Base.transaction do
-      @command = Command.create(ZAPPBUNDLE: params[:application],
+      application = params[:application] == 'Global' ? nil : params[:application]
+      @command = Command.create(ZAPPBUNDLE: application,
                                ZAPPVERSION: params[:application_version],
                                ZTYPE: params[:command_type])
       @action = @command.create_action!(ZTEXT: params[:action])

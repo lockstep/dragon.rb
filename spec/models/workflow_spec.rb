@@ -56,5 +56,15 @@ describe Workflow do
       expect(@trigger.ZDESC).to eq 'my desc'
       expect(@trigger.ZSTRING).to eq 'test com'
     end
+    context 'the application is Global' do
+      it 'saves APPBUNDLE as nil' do
+        Workflow.create!({
+          application: 'Global', application_version: 7
+        })
+        @command = Command.last
+        expect(@command.ZAPPBUNDLE).to be_nil
+        expect(@command.ZAPPVERSION).to eq 7
+      end
+    end
   end
 end

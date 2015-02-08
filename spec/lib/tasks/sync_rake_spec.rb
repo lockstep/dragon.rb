@@ -16,12 +16,12 @@ end
 describe 'sync:create' do
   include_context 'rake'
   it 'calls create on workflow for defined templates' do
-    allow(YAML).to receive(:load).and_return([[
-      "Back and Forth", {
-        "description"=>"A test command",
-        "builders"=>[["org.vim.MacVim", 7, "Navigation::Vim::ToggleFile"]]
+    allow(YAML).to receive(:load).and_return({
+      "Back and Forth" => {
+      "description"=>"A test command",
+      "builds"=>[["org.vim.MacVim", 7, "Navigation::Vim::ToggleFile"]]
       }
-    ]])
+    })
     allow(Workflow).to receive(:create!)
     subject.invoke
     expect(Workflow).to have_received(:create!).with({
