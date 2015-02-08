@@ -1,3 +1,9 @@
 Toggle:
   description: Toggle to and from the most recent file
   builds: [[org.vim.MacVim, 7, 'Navigation::Vim::ToggleFile']]
+R Win:
+  description: Moves one window to the right
+  builds: [[org.vim.MacVim, 7, 'Navigation::Vim::RightWindow']]
+L Win:
+  description: Moves one window to the left
+  builds: [[org.vim.MacVim, 7, 'Navigation::Vim::LeftWindow']]
