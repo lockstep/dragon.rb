@@ -7,3 +7,12 @@ R Win:
 L Win:
   description: Moves one window to the left
   builds: [[org.vim.MacVim, 7, 'Navigation::Vim::LeftWindow']]
+Climb:
+  description: Moves one window up
+  builds: [[org.vim.MacVim, 7, 'Navigation::Vim::UpWindow']]
+Drop:
+  description: Moves one window up
+  builds: [[org.vim.MacVim, 7, 'Navigation::Vim::DownWindow']]
+Top:
+  description: Move to the top of the file
+  builds: [[org.vim.MacVim, 7, 'Navigation::Vim::FileTop']]
