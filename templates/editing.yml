@@ -1,0 +1,15 @@
+Put:
+  description: Put content of buffer
+  builds: [[org.vim.MacVim, 7, 'Editing::Vim::Put']]
+Word:
+  description: Yank within a word
+  builds: [[org.vim.MacVim, 7, 'Editing::Vim::YankWithinWord']]
+Ruby:
+  description: Yank around a ruby block
+  builds: [[org.vim.MacVim, 7, 'Editing::Vim::YankAroundRubyBlock']]
+Ruben:
+  description: Yank within a ruby block
+  builds: [[org.vim.MacVim, 7, 'Editing::Vim::YankWithinRubyBlock']]
+Class:
+  description: Yank around a ruby class
+  builds: [[org.vim.MacVim, 7, 'Editing::Vim::YankAroundRubyClass']]

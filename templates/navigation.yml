@@ -16,3 +16,15 @@ Drop:
 Top:
   description: Move to the top of the file
   builds: [[org.vim.MacVim, 7, 'Navigation::Vim::FileTop']]
+Bottom:
+  description: Move to the bottom of the file
+  builds: [[org.vim.MacVim, 7, 'Navigation::Vim::FileBottom']]
+End:
+  description: Move to the end of a line
+  builds: [[org.vim.MacVim, 7, 'Navigation::Vim::LineEnd']]
+Beg:
+  description: Move to the beginning of a line
+  builds: [[org.vim.MacVim, 7, 'Navigation::Vim::LineBeginning']]
+Fall /!SpokenArguments!/:
+  description: Navigate downward the spoken number of times
+  builds: [[org.vim.MacVim, 7, 'Navigation::Vim::JumpDown']]

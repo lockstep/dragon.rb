@@ -47,4 +47,65 @@ describe 'Vim Navigation' do
       expect(@builder.action).to eq 'gg'
     end
   end
+
+  describe Navigation::Vim::FileBottom do
+    before { @builder = Navigation::Vim::FileBottom.new }
+    it_behaves_like 'a text macro'
+    it 'hits G to navigate to the files bottom' do
+      expect(@builder.action).to eq 'G'
+    end
+  end
+
+  describe Navigation::Vim::LineEnd do
+    before { @builder = Navigation::Vim::LineEnd.new }
+    it_behaves_like 'a text macro'
+    it 'hits $ to navigate to the end of a line' do
+      expect(@builder.action).to eq '$'
+    end
+  end
+
+  describe Navigation::Vim::LineBeginning do
+    before { @builder = Navigation::Vim::LineBeginning.new }
+    it_behaves_like 'a text macro'
+    it 'hits ^ to navigate to the end of a line' do
+      expect(@builder.action).to eq '^'
+    end
+  end
+
+  describe Navigation::Vim::JumpDown do
+    before { @builder = Navigation::Vim::JumpDown.new }
+    it_behaves_like 'an applescript'
+    it 'prepends j with the spoken integer' do
+      expect(@builder.action.align_left).to eq <<-APPLESCRIPT.align_left
+        set _dictateApp to (name of current application)
+        on srhandler(vars)
+          set spokenArguments to (varSpokenArguments of vars)
+          keystroke spokenInteger(spokenArguments) & "j"
+        end srhandler
+        on spokenInteger(spokenArguments)
+          if spokenArguments = "one" then
+            set result to "1"
+          else if spokenArguments = "to" then
+            set result to "2"
+          else if spokenArguments = "three" then
+            set result to "3"
+          else if spokenArguments = "for" then
+            set result to "4"
+          else if spokenArguments = "five" then
+            set result to "5"
+          else if spokenArguments = "six" then
+            set result to "6"
+          else if spokenArguments = "seven" then
+            set result to "7"
+          else if spokenArguments = "eight" then
+            set result to "8"
+          else if spokenArguments = "nine" then
+            set result to "9"
+          else
+            set result to spokenArguments
+          end if
+        end spokenInteger
+      APPLESCRIPT
+    end
+  end
 end
