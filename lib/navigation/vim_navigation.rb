@@ -90,5 +90,40 @@ module Navigation
       end
     end
 
+    class JumpUp < AppleScriptBuilder
+      def initialize
+        @action = <<-APPLESCRIPT.align_left
+          set _dictateApp to (name of current application)
+          on srhandler(vars)
+            set spokenArguments to (varSpokenArguments of vars)
+            keystroke spokenInteger(spokenArguments) & "k"
+          end srhandler
+          on spokenInteger(spokenArguments)
+            if spokenArguments = "one" then
+              set result to "1"
+            else if spokenArguments = "to" then
+              set result to "2"
+            else if spokenArguments = "three" then
+              set result to "3"
+            else if spokenArguments = "for" then
+              set result to "4"
+            else if spokenArguments = "five" then
+              set result to "5"
+            else if spokenArguments = "six" then
+              set result to "6"
+            else if spokenArguments = "seven" then
+              set result to "7"
+            else if spokenArguments = "eight" then
+              set result to "8"
+            else if spokenArguments = "nine" then
+              set result to "9"
+            else
+              set result to spokenArguments
+            end if
+          end spokenInteger
+        APPLESCRIPT
+      end
+    end
+
   end
 end
