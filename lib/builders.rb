@@ -15,6 +15,12 @@ class KeystrokeBuilder < ActionBuilder
 end
 
 class AppleScriptBuilder < ActionBuilder
+  include AppleScriptHelpers
+
+  def initialize
+    @action = "set _dictateApp to (name of current application)\n"
+  end
+
   def command_type
     'AppleScript'
   end

@@ -2,15 +2,13 @@ module Dictation
 
   class ShowExpressEditor < AppleScriptBuilder
     def initialize
-      @action = <<-APPLESCRIPT.align_left
-        set _dictateApp to (name of current application)
+      super
+      @action << <<-APPLESCRIPT.align_left
         tell application _dictateApp
           show express editor
         end tell
-        tell application _dictateApp
-          set microphone to dictation
-        end tell
       APPLESCRIPT
+      set_to_dictation_mode
     end
   end
 
