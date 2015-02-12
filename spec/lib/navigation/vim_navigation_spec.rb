@@ -145,4 +145,43 @@ describe 'Vim Navigation' do
       APPLESCRIPT
     end
   end
+
+  describe Navigation::Vim::CtrlP do
+    before { @builder = Navigation::Vim::CtrlP.new }
+    it_behaves_like 'an applescript'
+    it 'activates ctrl p and searches the phrase with no spaces' do
+      expect(@builder.action.align_left).to eq <<-APPLESCRIPT.align_left
+        on srhandler(vars)
+          set _dictateApp to (name of current application)
+          set spokenArguments to (varSpokenArguments of vars)
+          try
+            tell application _dictateApp
+              using terms from application "System Events"
+                «event DctaSnKS» "p" given «class faal»:{control down}
+              end using terms from
+            end tell
+            set noSpaces to spacesRemoved(spokenArguments)
+            repeat with theCharacter in the characters of noSpaces
+              tell application "System Events"
+                keystroke theCharacter
+                delay 0.03
+              end tell
+            end repeat
+          end try
+        end srhandler
+        on spacesRemoved(spokenArguments)
+          set spaceless to ""
+          set characterList to characters of spokenArguments
+          repeat with theCharacter in characterList
+            if theCharacter as string is equal to " " then
+              set spaceless to spaceless & ""
+            else
+              set spaceless to spaceless & theCharacter
+            end if
+          end repeat
+          return spaceless
+        end spacesRemoved
+      APPLESCRIPT
+    end
+  end
 end

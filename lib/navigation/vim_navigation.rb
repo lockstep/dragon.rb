@@ -81,5 +81,32 @@ module Navigation
       end
     end
 
+    class CtrlP < AppleScriptBuilder
+      def initialize
+        super
+        @action = <<-APPLESCRIPT.align_left
+          on srhandler(vars)
+            set _dictateApp to (name of current application)
+            set spokenArguments to (varSpokenArguments of vars)
+            try
+              tell application _dictateApp
+                using terms from application "System Events"
+                  «event DctaSnKS» "p" given «class faal»:{control down}
+                end using terms from
+              end tell
+              set noSpaces to spacesRemoved(spokenArguments)
+              repeat with theCharacter in the characters of noSpaces
+                tell application "System Events"
+                  keystroke theCharacter
+                  delay 0.03
+                end tell
+              end repeat
+            end try
+          end srhandler
+        APPLESCRIPT
+        include_spaces_removed
+      end
+    end
+
   end
 end

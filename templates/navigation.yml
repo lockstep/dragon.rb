@@ -31,3 +31,6 @@ Fall /!SpokenArguments!/:
 Rise /!SpokenArguments!/:
   description: Navigate upward the spoken number of times
   builds: [[org.vim.MacVim, 7, 'Navigation::Vim::JumpUp']]
+Fuzz /!SpokenArguments!/:
+  description: Search with Ctrl-p for the spoken phrase
+  builds: [[org.vim.MacVim, 7, 'Navigation::Vim::CtrlP']]

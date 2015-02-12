@@ -28,6 +28,23 @@ module AppleScriptHelpers
     APPLESCRIPT
   end
 
+  def include_spaces_removed
+    @action << <<-APPLESCRIPT.align_left
+      on spacesRemoved(spokenArguments)
+        set spaceless to ""
+        set characterList to characters of spokenArguments
+        repeat with theCharacter in characterList
+          if theCharacter as string is equal to " " then
+            set spaceless to spaceless & ""
+          else
+            set spaceless to spaceless & theCharacter
+          end if
+        end repeat
+        return spaceless
+      end spacesRemoved
+    APPLESCRIPT
+  end
+
   def set_to_dictation_mode
     @action << <<-APPLESCRIPT.align_left
       tell application _dictateApp
