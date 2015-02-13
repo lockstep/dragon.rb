@@ -113,44 +113,22 @@ describe 'Vim Navigation' do
     before { @builder = Navigation::Vim::JumpUp.new }
     it_behaves_like 'an applescript'
     it 'prepends j with the spoken integer' do
-      expect(@builder.action.align_left).to eq <<-APPLESCRIPT.align_left
+      expect(@builder.action.align_left).to include <<-APPLESCRIPT.align_left
         set _dictateApp to (name of current application)
         on srhandler(vars)
           set spokenArguments to (varSpokenArguments of vars)
           keystroke spokenInteger(spokenArguments) & "k"
         end srhandler
-        on spokenInteger(spokenArguments)
-          if spokenArguments = "one" then
-            set result to "1"
-          else if spokenArguments = "to" then
-            set result to "2"
-          else if spokenArguments = "three" then
-            set result to "3"
-          else if spokenArguments = "for" then
-            set result to "4"
-          else if spokenArguments = "five" then
-            set result to "5"
-          else if spokenArguments = "six" then
-            set result to "6"
-          else if spokenArguments = "seven" then
-            set result to "7"
-          else if spokenArguments = "eight" then
-            set result to "8"
-          else if spokenArguments = "nine" then
-            set result to "9"
-          else
-            set result to spokenArguments
-          end if
-        end spokenInteger
       APPLESCRIPT
     end
+    it_behaves_like 'it includes spokenInteger'
   end
 
   describe Navigation::Vim::CtrlP do
     before { @builder = Navigation::Vim::CtrlP.new }
     it_behaves_like 'an applescript'
     it 'activates ctrl p and searches the phrase with no spaces' do
-      expect(@builder.action.align_left).to eq <<-APPLESCRIPT.align_left
+      expect(@builder.action.align_left).to include <<-APPLESCRIPT.align_left
         on srhandler(vars)
           set _dictateApp to (name of current application)
           set spokenArguments to (varSpokenArguments of vars)
@@ -161,27 +139,12 @@ describe 'Vim Navigation' do
               end using terms from
             end tell
             set noSpaces to spacesRemoved(spokenArguments)
-            repeat with theCharacter in the characters of noSpaces
-              tell application "System Events"
-                keystroke theCharacter
-                delay 0.03
-              end tell
-            end repeat
+            sendCharactersWithDelay(noSpaces)
           end try
         end srhandler
-        on spacesRemoved(spokenArguments)
-          set spaceless to ""
-          set characterList to characters of spokenArguments
-          repeat with theCharacter in characterList
-            if theCharacter as string is equal to " " then
-              set spaceless to spaceless & ""
-            else
-              set spaceless to spaceless & theCharacter
-            end if
-          end repeat
-          return spaceless
-        end spacesRemoved
       APPLESCRIPT
     end
+    it_behaves_like 'it includes spacesRemoved'
+    it_behaves_like 'it includes sendCharactersWithDelay'
   end
 end

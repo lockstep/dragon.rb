@@ -45,6 +45,19 @@ module AppleScriptHelpers
     APPLESCRIPT
   end
 
+  def include_send_characters_with_delay
+    @action << <<-APPLESCRIPT.align_left
+      on sendCharactersWithDelay(charactersToType)
+        repeat with theCharacter in the characters of charactersToType
+          tell application "System Events"
+            keystroke theCharacter
+            delay 0.03
+          end tell
+        end repeat
+      end sendCharactersWithDelay
+    APPLESCRIPT
+  end
+
   def set_to_dictation_mode
     @action << <<-APPLESCRIPT.align_left
       tell application _dictateApp

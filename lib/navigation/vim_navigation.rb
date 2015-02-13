@@ -95,16 +95,12 @@ module Navigation
                 end using terms from
               end tell
               set noSpaces to spacesRemoved(spokenArguments)
-              repeat with theCharacter in the characters of noSpaces
-                tell application "System Events"
-                  keystroke theCharacter
-                  delay 0.03
-                end tell
-              end repeat
+              sendCharactersWithDelay(noSpaces)
             end try
           end srhandler
         APPLESCRIPT
         include_spaces_removed
+        include_send_characters_with_delay
       end
     end
 
