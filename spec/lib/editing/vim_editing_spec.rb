@@ -40,4 +40,33 @@ describe 'Vim Editing' do
     end
   end
 
+  describe Editing::Vim::YankUp do
+    before { @builder = Editing::Vim::YankUp.new }
+    it_behaves_like 'an applescript'
+    it 'puts spoken integer between y and k' do
+      expect(@builder.action.align_left).to include <<-APPLESCRIPT.align_left
+        set _dictateApp to (name of current application)
+        on srhandler(vars)
+          set spokenArguments to (varSpokenArguments of vars)
+          keystroke "y" & spokenInteger(spokenArguments) & "k"
+        end srhandler
+      APPLESCRIPT
+    end
+    it_behaves_like 'it includes spokenInteger'
+  end
+
+  describe Editing::Vim::YankDown do
+    before { @builder = Editing::Vim::YankDown.new }
+    it_behaves_like 'an applescript'
+    it 'puts spoken integer between y and j' do
+      expect(@builder.action.align_left).to include <<-APPLESCRIPT.align_left
+        set _dictateApp to (name of current application)
+        on srhandler(vars)
+          set spokenArguments to (varSpokenArguments of vars)
+          keystroke "y" & spokenInteger(spokenArguments) & "j"
+        end srhandler
+      APPLESCRIPT
+    end
+    it_behaves_like 'it includes spokenInteger'
+  end
 end

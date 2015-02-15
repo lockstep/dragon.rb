@@ -31,5 +31,31 @@ module Editing
       end
     end
 
+    class YankUp < AppleScriptBuilder
+      def initialize
+        super
+        @action << <<-APPLESCRIPT.align_left
+          on srhandler(vars)
+            set spokenArguments to (varSpokenArguments of vars)
+            keystroke "y" & spokenInteger(spokenArguments) & "k"
+          end srhandler
+        APPLESCRIPT
+        include_spoken_integer
+      end
+    end
+
+    class YankDown < AppleScriptBuilder
+      def initialize
+        super
+        @action << <<-APPLESCRIPT.align_left
+          on srhandler(vars)
+            set spokenArguments to (varSpokenArguments of vars)
+            keystroke "y" & spokenInteger(spokenArguments) & "j"
+          end srhandler
+        APPLESCRIPT
+        include_spoken_integer
+      end
+    end
+
   end
 end
