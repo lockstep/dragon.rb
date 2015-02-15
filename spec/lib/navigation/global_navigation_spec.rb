@@ -17,4 +17,22 @@ describe 'Global Navigation' do
     end
     it_behaves_like 'it includes spokenInteger'
   end
+  describe Navigation::Global::DownArrow do
+    before { @builder = Navigation::Global::DownArrow.new }
+    it_behaves_like 'an applescript'
+    it 'triggers the down arrow key a set number of times' do
+      expect(@builder.action.align_left).to include <<-APPLESCRIPT.align_left
+        set _dictateApp to (name of current application)
+        on srhandler(vars)
+          set spokenArguments to (varSpokenArguments of vars)
+          repeat spokenInteger(spokenArguments) times
+            tell application "System Events"
+              key code 125
+            end tell
+          end repeat
+        end srhandler
+      APPLESCRIPT
+    end
+    it_behaves_like 'it includes spokenInteger'
+  end
 end
