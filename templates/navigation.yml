@@ -40,3 +40,6 @@ Down /!SpokenArguments!/:
 Fuzz /!SpokenArguments!/:
   description: Search with Ctrl-p for the spoken phrase
   builds: [[org.vim.MacVim, 7, 'Navigation::Vim::CtrlP']]
+Explore:
+  description: Open the explorer
+  builds: [[org.vim.MacVim, 7, 'Navigation::Vim::Explore']]

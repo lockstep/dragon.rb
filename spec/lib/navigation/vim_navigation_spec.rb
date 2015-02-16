@@ -147,4 +147,12 @@ describe 'Vim Navigation' do
     it_behaves_like 'it includes spacesRemoved'
     it_behaves_like 'it includes sendCharactersWithDelay'
   end
+
+  describe Navigation::Vim::Explore do
+    before { @builder = Navigation::Vim::Explore.new }
+    it_behaves_like 'a text macro'
+    it 'presses leader e' do
+      expect(@builder.action).to eq ' e'
+    end
+  end
 end

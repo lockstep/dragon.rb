@@ -7,6 +7,12 @@ module Navigation
       end
     end
 
+    class Explore < TextMacroBuilder
+      def initialize
+        @action = ' e'
+      end
+    end
+
     class RightWindow < KeystrokeBuilder
       def initialize
         @action = 'Control-l'
