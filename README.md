@@ -1,5 +1,6 @@
 # Dragon.rb
-A ruby DSL for customizing Dragon Dictate on OSX
+A ruby DSL for customizing Dragon Dictate on OSX. Introductory post
+[here](http://blog.paulrugelhiatt.com/dragonrb/ruby/2015/02/16/introducing-dragonrb-an-open-source-ruby-dsl-for-voice-recognition-software.html).
 
 ## Setup
 Clone the repo and run `bundle`. Copy the example database config:
