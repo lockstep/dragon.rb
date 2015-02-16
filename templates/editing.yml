@@ -15,7 +15,7 @@ Class:
   builds: [[org.vim.MacVim, 7, 'Editing::Vim::YankAroundRubyClass']]
 Yank Up /!SpokenArguments!/:
   description: Yank upwards the spoken number of lines
-  builds: [[org.vim.MacVim, 7, 'Navigation::Vim::YankUp']]
+  builds: [[org.vim.MacVim, 7, 'Editing::Vim::YankUp']]
 Yank Down /!SpokenArguments!/:
   description: Yank downwards the spoken number of lines
-  builds: [[org.vim.MacVim, 7, 'Navigation::Vim::YankDown']]
+  builds: [[org.vim.MacVim, 7, 'Editing::Vim::YankDown']]
